@@ -7,7 +7,7 @@ const MessagesTable = ({ messages }) => {
 
   return (
     <>
-      <table className="w3-table-all">
+      <table className="w3-table-all table">
         <thead className="w3-large">
           <tr>
             <th width="30%">Gatilho</th>
@@ -17,6 +17,7 @@ const MessagesTable = ({ messages }) => {
           </tr>
         </thead>
         <tbody>
+          {messages.length === 0 && <tr><td className="w3-xlarge w3-center" colSpan="4">Nenhuma Mensagem</td></tr>}
           {messages.map((message) => (
             <tr key={message.id}>
               <td>{message.trigger}</td>

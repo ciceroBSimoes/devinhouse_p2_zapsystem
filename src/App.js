@@ -26,9 +26,12 @@ const App = () => {
       alert(error);
     }
   };
-  const handleGetMessages = async () => {
+  const handleGetMessages = async (trigger, channel, time) => {
     try {
-      const response = await api.get("/messages");
+      console.log(trigger, channel, time);
+      const response = await api.get(
+        `/messages?trigger_like=${trigger}&channel_like=${channel}&timer_like=${time}`
+      );
       setMessages(response.data);
     } catch (error) {
       console.log(error);
@@ -37,13 +40,12 @@ const App = () => {
   useEffect(() => {
     handleGetTriggers();
     handleGetChannels();
-    handleGetMessages();
   }, []);
 
   return (
     <Router>
       <Header />
-      <div className="w3-container w3-display-middle">
+      <div className="w3-container">
         <Switch>
           <Route
             exact
@@ -53,6 +55,7 @@ const App = () => {
                 triggers={triggers}
                 channels={channels}
                 messages={messages}
+                handleGetMessages={handleGetMessages}
               />
             )}
           />

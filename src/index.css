@@ -23,3 +23,11 @@
   flex-direction: column;
   margin: 5px;
 }
+.main {
+  width: 40%;
+  margin: 20px auto;
+}
+.table {
+  width: 40%;
+  margin: 20px auto;
+}
