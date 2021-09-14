@@ -1,77 +1,67 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import MessagesTable from "../../components/MessagesTable";
+import Filter from "../../components/Filter";
+import api from "../../services/api";
 
-const Home = ({ triggers, channels, messages, handleGetMessages }) => {
-  const [query, setQuery] = useState({ trigger: "", channel: "", time: "" });
+const Home = () => {
+  const [triggers, setTriggers] = useState([]);
+  const [channels, setChannels] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [isSearchRequest, setIsSearchRequest] = useState(false);
 
+  const handleGetTriggers = async () => {
+    try {
+      const response = await api.get("/triggers");
+      setTriggers(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleGetChannels = async () => {
+    try {
+      const response = await api.get("/channels");
+      setChannels(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleGetMessages = async (searchQuery) => {
+    try {
+      const response = await api.get(`/messages?${searchQuery}`);
+      setMessages(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
-    console.log(query);
-    handleGetMessages(query.trigger, query.channel, query.time);
-  }, [query]);
+    {
+      isSearchRequest === false && handleGetTriggers();
+      handleGetChannels();
+    }
+    handleGetMessages();
+  }, []);
 
   return (
     <>
       <div className="main">
         <div className="w3-bar w3-margin-bottom">
           <span className="w3-bar-item w3-xxlarge">Mensagens</span>
-          <button className="w3-margin w3-bar-item w3-right w3-button w3-indigo w3-round-xlarge">
-            Nova Mensagem
-          </button>
-          <button className="w3-margin w3-bar-item w3-right w3-button w3-border w3-round-xlarge">
-            Pesquisar
-          </button>
+          <Link to="/message_form">
+            <button className="w3-margin w3-bar-item w3-right w3-button w3-indigo w3-round-xlarge">
+              Nova Mensagem
+            </button>
+          </Link>
         </div>
-
-        <form className="w3-container filter w3-large">
-          <div>
-            <label htmlFor="triggerSelect">Gatilho:</label>
-            <select
-              id="triggerSelect"
-              className="w3-select w3-border"
-              onChange={(e) => {
-                setQuery({ ...query, trigger: e.target.value });
-              }}
-            >
-              <option value=""></option>
-              {triggers.map((trigger) => (
-                <option key={trigger.id} value={trigger.name}>
-                  {trigger.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="channelSelect">Canal:</label>
-            <select
-              id="channelSelect"
-              className="w3-select w3-border"
-              onChange={(e) => {
-                setQuery({ ...query, channel: e.target.value });
-              }}
-            >
-              <option value=""></option>
-              {channels.map((channel) => (
-                <option key={channel.id} value={channel.name}>
-                  {channel.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="timerField">Timer:</label>
-            <input
-              type="text"
-              id="timerField"
-              className="w3-input w3-border"
-              onChange={(e) => {
-                setQuery({ ...query, time: e.target.value });
-              }}
-            />
-          </div>
-        </form>
       </div>
+
+      <Filter
+        triggers={triggers}
+        channels={channels}
+        isSearchRequest={isSearchRequest}
+        setIsSearchRequest={setIsSearchRequest}
+        handleGetMessages={handleGetMessages}
+      />
       <MessagesTable messages={messages} />
     </>
   );

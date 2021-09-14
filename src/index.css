@@ -14,9 +14,10 @@
 
 .filter {
   display: flex;
-  justify-content: stretch;
+  justify-content: space-between;
+  width: 60%;
   padding: 10px;
-  margin: 10px 0;
+  margin: 20px auto;
 }
 .filter div {
   display: flex;
@@ -24,10 +25,10 @@
   margin: 5px;
 }
 .main {
-  width: 40%;
+  width: 60%;
   margin: 20px auto;
 }
 .table {
-  width: 40%;
+  width: 60%;
   margin: 20px auto;
 }

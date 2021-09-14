@@ -7,12 +7,12 @@ const Header = () => {
     <div className="w3-bar w3-black menu">
       <img src={logo} alt="logo" />
       <nav className="w3-large">
-        <span className="w3-bar-item w3-button">
-          <Link to="/">Mensagem</Link>
-        </span>
-        <span className="w3-bar-item w3-button">
-          <Link to="/dashboard">Dashboard</Link>
-        </span>
+        <Link to="/">
+          <span className="w3-bar-item w3-button">Mensagem</span>
+        </Link>
+        <Link to="/dashboard">
+          <span className="w3-bar-item w3-button">Dashboard</span>
+        </Link>
       </nav>
     </div>
   );
