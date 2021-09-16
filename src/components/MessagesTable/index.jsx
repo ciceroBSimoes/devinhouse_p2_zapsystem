@@ -7,8 +7,8 @@ const MessagesTable = ({ messages }) => {
 
   return (
     <>
-      <table className="w3-table-all table">
-        <thead className="w3-large">
+      <table>
+        <thead>
           <tr>
             <th width="30%">Gatilho</th>
             <th width="20%">Canal</th>
@@ -17,7 +17,11 @@ const MessagesTable = ({ messages }) => {
           </tr>
         </thead>
         <tbody>
-          {messages.length === 0 && <tr><td className="w3-xlarge w3-center" colSpan="4">Nenhuma Mensagem</td></tr>}
+          {messages.length === 0 && (
+            <tr>
+              <td colSpan="4">Nenhuma Mensagem</td>
+            </tr>
+          )}
           {messages.map((message) => (
             <tr key={message.id}>
               <td>{message.trigger}</td>
@@ -25,7 +29,6 @@ const MessagesTable = ({ messages }) => {
               <td>{message.timer}</td>
               <td>
                 <button
-                  className="w3-btn w3-indigo w3-round"
                   onClick={() => {
                     setModalText(message.message);
                     setModalIsOpen(true);
@@ -39,10 +42,9 @@ const MessagesTable = ({ messages }) => {
         </tbody>
       </table>
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
-        style={{
+      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+        {/*
+          style={{
           overlay: {
             backgroundColor: "none",
           },
@@ -53,16 +55,11 @@ const MessagesTable = ({ messages }) => {
             borderRadius: "8px",
           },
         }}
-      >
-        <h2 className="w3-bar-item">Mensagem</h2>
-        <span
-          className="w3-button w3-display-topright w3-round-medium"
-          onClick={() => setModalIsOpen(false)}
-        >
-          &times;
-        </span>
+        */}
+        <h2>Mensagem</h2>
+        <span onClick={() => setModalIsOpen(false)}>&times;</span>
 
-        <p className="w3-large">{modalText}</p>
+        <p>{modalText}</p>
       </Modal>
     </>
   );

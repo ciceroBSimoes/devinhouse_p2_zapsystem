@@ -7,6 +7,7 @@ const Filter = ({
   handleGetMessages,
 }) => {
   const [query, setQuery] = useState({ trigger: "", channel: "", time: "" });
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchQuery = `trigger_like=${query.trigger}&channel_like=${query.channel}&timer_like=${query.time}`;
@@ -15,12 +16,11 @@ const Filter = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w3-container filter w3-large">
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="triggerSelect">Gatilho:</label>
         <select
           id="triggerSelect"
-          className="w3-select w3-border"
           onChange={(e) => {
             setQuery({ ...query, trigger: e.target.value });
           }}
@@ -38,7 +38,6 @@ const Filter = ({
         <label htmlFor="channelSelect">Canal:</label>
         <select
           id="channelSelect"
-          className="w3-select w3-border"
           onChange={(e) => {
             setQuery({ ...query, channel: e.target.value });
           }}
@@ -57,19 +56,13 @@ const Filter = ({
         <input
           type="text"
           id="timerField"
-          className="w3-input w3-border"
           onChange={(e) => {
             setQuery({ ...query, time: e.target.value });
           }}
         />
       </div>
       <div>
-        <button
-          type="submit"
-          className="w3-right w3-button w3-border w3-round-large"
-        >
-          Pesquisar
-        </button>
+        <button type="submit">Pesquisar</button>
       </div>
     </form>
   );

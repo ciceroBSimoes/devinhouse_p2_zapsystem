@@ -1,23 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
-import MessageForm from "./pages/MessageForm";
+import NewMessageForm from "./pages/NewMessageForm";
+import { connect } from "react-redux";
+import { fetchOptions, loadChannels, loadTriggers } from "./redux/Select/select-actions";
+import api from "./services/api";
+import axios from "axios";
 
-const App = () => {
+const App = ({ fetchOptions }) => {
+
+  useEffect(() => {
+    fetchOptions();
+  }, [fetchOptions])
+
   return (
     <Router>
       <Header />
-      <div className="w3-container">
+      <>
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/message_form" render={() => <MessageForm />} />
+          <Route exact path="/new_message_form" render={() => <NewMessageForm />} />
           <Route exact path="/dashboard" render={() => <Dashboard />} />
         </Switch>
-      </div>
+      </>
     </Router>
   );
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchOptions: () =>
+      dispatch(
+        fetchOptions(),
+        axios.all([api.get("triggers"), api.get("channels")])
+        .then(axios.spread((...responses) => {
+          dispatch(loadTriggers(responses[0].data));
+          dispatch(loadChannels(responses[1].data));
+        }))
+      ),
+  };
+};
+/**
+ * api.get("/trigger_like=&channel_like=").then((response) => {
+          dispatch(loadOptions(response.data));
+        })
+ */
+export default connect(null, mapDispatchToProps)(App);

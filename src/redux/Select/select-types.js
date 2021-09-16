@@ -1,0 +1,3 @@
+export const FETCH_OPTIONS = "FETCH_OPTIONS";
+export const LOAD_TRIGGERS = "LOAD_TRIGGERS";
+export const LOAD_CHANNELS = "LOAD_CHANNELS";

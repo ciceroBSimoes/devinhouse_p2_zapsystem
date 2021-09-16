@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
+//import logo from "../../images/logo.png";
 
 const Header = () => {
   return (
-    <div className="w3-bar w3-black menu">
-      <img src={logo} alt="logo" />
-      <nav className="w3-large">
+    <div>
+      {/* <img src={logo} alt="logo" /> */}
+      <h2>Logo</h2>
+      <nav>
         <Link to="/">
-          <span className="w3-bar-item w3-button">Mensagem</span>
+          <span>Mensagem</span>
         </Link>
         <Link to="/dashboard">
-          <span className="w3-bar-item w3-button">Dashboard</span>
+          <span>Dashboard</span>
         </Link>
       </nav>
     </div>

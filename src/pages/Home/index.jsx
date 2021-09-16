@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MessagesTable from "../../components/MessagesTable";
 import Filter from "../../components/Filter";
 import api from "../../services/api";
+import { connect } from "react-redux";
 
-const Home = () => {
-  const [triggers, setTriggers] = useState([]);
-  const [channels, setChannels] = useState([]);
+const Home = ({ triggers, channels }) => {
+  //const [triggers, setTriggers] = useState([]);
+  //const [channels, setChannels] = useState([]);
   const [messages, setMessages] = useState([]);
   const [isSearchRequest, setIsSearchRequest] = useState(false);
 
-  const handleGetTriggers = async () => {
+  /* const handleGetTriggers = async () => {
     try {
       const response = await api.get("/triggers");
       setTriggers(response.data);
@@ -25,7 +26,7 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }; */
   const handleGetMessages = async (searchQuery) => {
     try {
       const response = await api.get(`/messages?${searchQuery}`);
@@ -34,23 +35,22 @@ const Home = () => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    {
-      isSearchRequest === false && handleGetTriggers();
+
+  /* useEffect(() => {
+    if (!isSearchRequest) {
+      handleGetTriggers();
       handleGetChannels();
     }
     handleGetMessages();
-  }, []);
+  }, []); */
 
   return (
     <>
-      <div className="main">
-        <div className="w3-bar w3-margin-bottom">
-          <span className="w3-bar-item w3-xxlarge">Mensagens</span>
-          <Link to="/message_form">
-            <button className="w3-margin w3-bar-item w3-right w3-button w3-indigo w3-round-xlarge">
-              Nova Mensagem
-            </button>
+      <div>
+        <div>
+          <span>Mensagens</span>
+          <Link to="/new_message_form">
+            <button>Nova Mensagem</button>
           </Link>
         </div>
       </div>
@@ -67,4 +67,11 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    triggers: state.select.triggers,
+    channels: state.select.channels,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
