@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import React from "react";
+import Swal from "sweetalert2";
 
 const MessagesTable = ({ messages }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalText, setModalText] = useState("");
-
   return (
     <>
       <table>
@@ -30,8 +27,7 @@ const MessagesTable = ({ messages }) => {
               <td>
                 <button
                   onClick={() => {
-                    setModalText(message.message);
-                    setModalIsOpen(true);
+                    Swal.fire("Mensagem", `${message.message}`);
                   }}
                 >
                   Ver Mensagem
@@ -41,26 +37,6 @@ const MessagesTable = ({ messages }) => {
           ))}
         </tbody>
       </table>
-
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-        {/*
-          style={{
-          overlay: {
-            backgroundColor: "none",
-          },
-          content: {
-            width: "600px",
-            height: "500px",
-            margin: "auto",
-            borderRadius: "8px",
-          },
-        }}
-        */}
-        <h2>Mensagem</h2>
-        <span onClick={() => setModalIsOpen(false)}>&times;</span>
-
-        <p>{modalText}</p>
-      </Modal>
     </>
   );
 };

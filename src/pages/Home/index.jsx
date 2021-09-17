@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MessagesTable from "../../components/MessagesTable";
 import Filter from "../../components/Filter";
@@ -6,27 +6,9 @@ import api from "../../services/api";
 import { connect } from "react-redux";
 
 const Home = ({ triggers, channels }) => {
-  //const [triggers, setTriggers] = useState([]);
-  //const [channels, setChannels] = useState([]);
   const [messages, setMessages] = useState([]);
   const [isSearchRequest, setIsSearchRequest] = useState(false);
 
-  /* const handleGetTriggers = async () => {
-    try {
-      const response = await api.get("/triggers");
-      setTriggers(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const handleGetChannels = async () => {
-    try {
-      const response = await api.get("/channels");
-      setChannels(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }; */
   const handleGetMessages = async (searchQuery) => {
     try {
       const response = await api.get(`/messages?${searchQuery}`);
@@ -36,13 +18,9 @@ const Home = ({ triggers, channels }) => {
     }
   };
 
-  /* useEffect(() => {
-    if (!isSearchRequest) {
-      handleGetTriggers();
-      handleGetChannels();
-    }
+  useEffect(() => {
     handleGetMessages();
-  }, []); */
+  }, []);
 
   return (
     <>

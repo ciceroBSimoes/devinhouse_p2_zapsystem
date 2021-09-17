@@ -8,7 +8,7 @@
       "message": " Na correria do dia a dia a Oi Conta Zap te ajuda a lembrar de algumas coisinhas! Ja conseguiu pagar seu boleto? Se sim, desconsidere a mensagem"
     },
     {
-      "id": 21,
+      "id": 24234521,
       "channel": "sms",
       "trigger": "fez_pix",
       "timer": "5:00",
@@ -34,6 +34,34 @@
       "trigger": "fez_pix",
       "timer": "2323",
       "message": "23232323"
+    },
+    {
+      "id": 1631885028825,
+      "trigger": "abertura_conta",
+      "channel": "email",
+      "timer": "22:00",
+      "message": "oisduioasd"
+    },
+    {
+      "id": 1631885165081,
+      "trigger": "abertura_conta",
+      "channel": "whatsapp",
+      "timer": "00:30",
+      "message": "Bem vindo a contaZap!!!"
+    },
+    {
+      "id": 1631885273417,
+      "trigger": "consultou_saldo",
+      "channel": "whatsapp",
+      "timer": "00:20",
+      "message": "Lorem ipsum dolor sit amet. Non esse exercitationem ea inventore debitis et praesentium nostrum et voluptatem perferendis vel aliquid ipsa et quisquam quibusdam."
+    },
+    {
+      "id": 1631885287690,
+      "trigger": "criou_chave_pix",
+      "channel": "email",
+      "timer": "00:20",
+      "message": "Lorem ipsum dolor sit amet. Non esse exercitationem ea inventore debitis et praesentium nostrum et voluptatem perferendis vel aliquid ipsa et quisquam quibusdam."
     }
   ],
   "channels": [

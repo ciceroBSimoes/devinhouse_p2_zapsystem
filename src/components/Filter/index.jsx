@@ -7,7 +7,7 @@ const Filter = ({
   handleGetMessages,
 }) => {
   const [query, setQuery] = useState({ trigger: "", channel: "", time: "" });
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchQuery = `trigger_like=${query.trigger}&channel_like=${query.channel}&timer_like=${query.time}`;
