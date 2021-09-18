@@ -29,13 +29,6 @@
       "message": "vI  que você criou um chave ?"
     },
     {
-      "id": 1631313726738,
-      "channel": "email",
-      "trigger": "fez_pix",
-      "timer": "2323",
-      "message": "23232323"
-    },
-    {
       "id": 1631885028825,
       "trigger": "abertura_conta",
       "channel": "email",
@@ -57,11 +50,11 @@
       "message": "Lorem ipsum dolor sit amet. Non esse exercitationem ea inventore debitis et praesentium nostrum et voluptatem perferendis vel aliquid ipsa et quisquam quibusdam."
     },
     {
-      "id": 1631885287690,
-      "trigger": "criou_chave_pix",
-      "channel": "email",
-      "timer": "00:20",
-      "message": "Lorem ipsum dolor sit amet. Non esse exercitationem ea inventore debitis et praesentium nostrum et voluptatem perferendis vel aliquid ipsa et quisquam quibusdam."
+      "id": 1632004579443,
+      "trigger": "recarregou_celular",
+      "channel": "whatsapp",
+      "timer": "00:15",
+      "message": "Recarga concluída com sucesso!! :)"
     }
   ],
   "channels": [

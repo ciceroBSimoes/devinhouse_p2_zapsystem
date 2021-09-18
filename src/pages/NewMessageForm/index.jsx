@@ -38,8 +38,8 @@ const NewMessageForm = ({ triggers, channels }) => {
   */
   return (
     <>
-      <div>
-        <h1>Nova Mensagem</h1>
+      <div className="header">
+        <h2>Mensagens</h2>
         <Link to="/">
           <button>Voltar</button>
         </Link>
@@ -48,10 +48,10 @@ const NewMessageForm = ({ triggers, channels }) => {
           Cadastrar
         </button>
       </div>
-      <form id="newMessage" onSubmit={handleSubmit(onSubmit)}>
-        <div>
+      <form id="newMessage" onSubmit={handleSubmit(onSubmit)} className="form-message">
+        <div className="form-field-message">
           <label htmlFor="selectTrigger">Gatilho:</label>
-          <select name="trigger" id="selectTrigger" {...register("trigger")}>
+          <select name="trigger" id="selectTrigger" {...register("trigger")} className={`${ errors.trigger? "alert-field" : "ok-field"}`}>
             <option value="">Selecione...</option>
             {triggers.map((trigger) => (
               <option key={trigger.id} value={trigger.name}>
@@ -59,12 +59,12 @@ const NewMessageForm = ({ triggers, channels }) => {
               </option>
             ))}
           </select>
-          <p>{errors.trigger?.message}</p>
+          <p className="alert">{errors.trigger?.message}</p>
         </div>
 
-        <div>
+        <div className="form-field-message">
           <label htmlFor="selectChannel">Canal:</label>
-          <select name="channel" id="selectChannel" {...register("channel")}>
+          <select name="channel" id="selectChannel" {...register("channel")} className={`${ errors.channel? "alert-field" : "ok-field"}`}>
             <option value="">Selecione...</option>
             {channels.map((channel) => (
               <option key={channel.id} value={channel.name}>
@@ -72,10 +72,10 @@ const NewMessageForm = ({ triggers, channels }) => {
               </option>
             ))}
           </select>
-          <p>{errors.channel?.message}</p>
+          <p className="alert">{errors.channel?.message}</p>
         </div>
 
-        <div>
+        <div className="form-field-message">
           <label htmlFor="inputTimer">Timer(max-96h):</label>
           <input
             type="text"
@@ -83,20 +83,23 @@ const NewMessageForm = ({ triggers, channels }) => {
             id="inputTimer"
             {...register("timer")}
             placeholder="HH:mm"
+            className={`${ errors.timer? "alert-field" : "ok-field"}`}
           />
-          <p>{errors.timer?.message}</p>
+          <p className="alert">{errors.timer?.message}</p>
         </div>
 
-        <div>
+        <div className="form-field-message text-area">
           <label htmlFor="messageText">Mensagem:</label>
           <textarea
             name="message"
             id="messageText"
+            resizable="false"
+            placeholder="Escreva aqui..."
             {...register("message")}
-            cols="30"
-            rows="10"
+            rows="8"
+            className={`${ errors.message? "alert-field" : "ok-field"}`}
           ></textarea>
-          <p>{errors.message?.message}</p>
+          <p className="alert">{errors.message?.message}</p>
         </div>
       </form>
     </>
