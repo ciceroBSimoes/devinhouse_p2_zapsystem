@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import * as yup from "yup";
 import api from "../../services/api";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const NewMessageForm = ({ triggers, channels }) => {
   const formSchema = yup.object().shape({
@@ -39,7 +40,10 @@ const NewMessageForm = ({ triggers, channels }) => {
     <>
       <div>
         <h1>Nova Mensagem</h1>
-        <button>Voltar</button>
+        <Link to="/">
+          <button>Voltar</button>
+        </Link>
+
         <button type="submit" form="newMessage">
           Cadastrar
         </button>
