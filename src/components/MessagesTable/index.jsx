@@ -4,19 +4,19 @@ import Swal from "sweetalert2";
 const MessagesTable = ({ messages }) => {
   return (
     <>
-      <table>
+      <table className="msg-list">
         <thead>
           <tr>
-            <th width="30%">Gatilho</th>
-            <th width="20%">Canal</th>
-            <th width="20%">Tempo</th>
+            <th width="40%">Gatilho</th>
+            <th width="15%">Canal</th>
+            <th width="15%">Tempo</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           {messages.length === 0 && (
             <tr>
-              <td colSpan="4">Nenhuma Mensagem</td>
+              <td colSpan="4" id="info">Nenhuma Mensagem</td>
             </tr>
           )}
           {messages.map((message) => (

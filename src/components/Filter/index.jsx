@@ -16,8 +16,8 @@ const Filter = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} id="filterForm" className="form">
+      <div className="form-field">
         <label htmlFor="triggerSelect">Gatilho:</label>
         <select
           id="triggerSelect"
@@ -25,7 +25,7 @@ const Filter = ({
             setQuery({ ...query, trigger: e.target.value });
           }}
         >
-          <option value=""></option>
+          <option value="">Selecione...</option>
           {triggers.map((trigger) => (
             <option key={trigger.id} value={trigger.name}>
               {trigger.name}
@@ -34,7 +34,7 @@ const Filter = ({
         </select>
       </div>
 
-      <div>
+      <div className="form-field">
         <label htmlFor="channelSelect">Canal:</label>
         <select
           id="channelSelect"
@@ -42,7 +42,7 @@ const Filter = ({
             setQuery({ ...query, channel: e.target.value });
           }}
         >
-          <option value=""></option>
+          <option value="">Selecione...</option>
           {channels.map((channel) => (
             <option key={channel.id} value={channel.name}>
               {channel.name}
@@ -51,19 +51,18 @@ const Filter = ({
         </select>
       </div>
 
-      <div>
+      <div className="form-field">
         <label htmlFor="timerField">Timer:</label>
         <input
           type="text"
           id="timerField"
+          placeholder="HH:mm"
           onChange={(e) => {
             setQuery({ ...query, time: e.target.value });
           }}
         />
       </div>
-      <div>
-        <button type="submit">Pesquisar</button>
-      </div>
+      
     </form>
   );
 };

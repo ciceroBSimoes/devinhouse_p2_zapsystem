@@ -4,14 +4,14 @@ import LineChart from "../../components/LineChart";
 
 const Dashboard = () => {
   return (
-    <>
-    <div style={{width:"800px", height:"500px"}}>
-      <HorizontalBarChart />
+    <div className="charts">
+      <div>
+        <HorizontalBarChart />
+      </div>
+      <div>
+        <LineChart />
+      </div>
     </div>
-    <div style={{width:"800px", height:"500px"}}>
-      <LineChart />
-    </div>
-    </>
   );
 };
 

@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.top {
+  background-color: #151965;
+}
+
+nav {
+  width: 60%;
+  margin: 0 auto;
+  padding: 15px;
+  font-weight: 500;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+}
+ul li:first-child {
+  margin-right: auto;
+  margin-left: 0;
+}
+.logo span {
+  margin-left: 20px;
+  font-size: 1.5rem;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cfcfcf;
+  margin: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  background-color: #515585;
+}
+
+.main {
+  width: 60%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.header h2 {
+  margin-right: auto;
+  color: #32407b;
+  font-weight: 600;
+}
+.header button {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #cfcfcf;
+  border-radius: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #32407b;
+  color: #ffffff;
+}
+.header button[type="submit"] {
+  color: #151965;
+  background-color: #ffffff;
+}
+.header button[type="submit"]:hover {
+  color: #ffffff;
+}
+.header button:hover {
+  background-color: #515585;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.header a {
+  text-decoration: none;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 8px 2px;
+  margin-bottom: 20px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+  font-size: 16px;
+  font-weight: 500;
+}
+.form-field > input {
+  border: 2px solid #dddddd;
+}
+.form-field select {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  border: 2px solid #dddddd;
+  background-color: white;
+}
+.form-field label {
+  font-size: 18px;
+}
+
+.msg-list {
+  border: 1px solid #cfcfcf;
+  width: 100%;
+  border-collapse: collapse;
+}
+.msg-list thead {
+  background-color: #515585;
+  color: white;
+}
+.msg-list td,
+th {
+  border: 1px solid #dddddd;
+  padding: 4px;
+}
+.msg-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.msg-list button {
+  display: block;
+  padding: 0.5rem;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #32407b;
+  color: #ffffff;
+}
+.msg-list button:hover {
+  background-color: #515585;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+#info {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px;
+}
+#newMessage {
+  border: 3px solid #cfcfcf;
+  border-radius: 6px;
+  padding: 8px;
+}
+.alert {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+.form-message {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 8px 2px;
+  margin-bottom: 20px;
+}
+.form-field-message {
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+  font-size: 16px;
+  font-weight: 500;
+}
+.form-field-message select,
+input {
+  padding: 4px;
+  border-radius: 6px;
+  background-color: white;
+}
+.form-field-message select {
+  cursor: pointer;
+}
+.form-field-message label {
+  font-size: 18px;
+}
+.text-area {
+  width: 100%;
+  margin: 5px;
+}
+.text-area textarea {
+  border-radius: 6px;
+  padding: 8px;
+  resize: none;
+}
+.ok-field {
+  border: 2px solid #dddddd;
+}
+.alert-field {
+  border: 2px solid red;
+}
+.charts div {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
