@@ -6,10 +6,11 @@ const Header = () => {
   return (
     <nav>
       <ul>
-        <li className="logo">
+        <li>
           <Link to="/">
-            <img src={logo} alt="logo" /><span>System</span>
+            <img src={logo} alt="logo" />
           </Link>
+          <span>System</span>
         </li>
         <li className="nav-link">
           <Link to="/">Mensagens</Link>

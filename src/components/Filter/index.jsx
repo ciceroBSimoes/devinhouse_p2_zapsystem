@@ -62,7 +62,6 @@ const Filter = ({
           }}
         />
       </div>
-      
     </form>
   );
 };

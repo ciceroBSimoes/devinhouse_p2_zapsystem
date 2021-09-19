@@ -4,15 +4,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-body {
   font-family: "Poppins", sans-serif;
 }
-
 .top {
   background-color: #151965;
 }
-
 nav {
   width: 60%;
   margin: 0 auto;
@@ -29,13 +25,15 @@ ul li a {
   text-decoration: none;
   color: white;
 }
+ul li span {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: auto 15px;
+}
 ul li:first-child {
   margin-right: auto;
-  margin-left: 0;
-}
-.logo span {
-  margin-left: 20px;
-  font-size: 1.5rem;
+  display: flex;
 }
 .nav-link {
   display: block;
@@ -46,17 +44,14 @@ ul li:first-child {
   cursor: pointer;
   font-size: 1.2rem;
 }
-
 .nav-link:hover {
   background-color: #515585;
 }
-
 .main {
   width: 60%;
   margin: 0 auto;
   padding: 15px;
 }
-
 .header {
   display: flex;
   align-items: center;
@@ -112,8 +107,10 @@ ul li:first-child {
 }
 .form-field > input {
   border: 2px solid #dddddd;
+  height: 40px;
 }
 .form-field select {
+  height: 40px;
   cursor: pointer;
   padding: 4px;
   border-radius: 6px;
@@ -164,11 +161,6 @@ th {
   font-weight: 600;
   padding: 20px;
 }
-#newMessage {
-  border: 3px solid #cfcfcf;
-  border-radius: 6px;
-  padding: 8px;
-}
 .alert {
   color: red;
   font-size: 14px;
@@ -190,6 +182,7 @@ th {
 }
 .form-field-message select,
 input {
+  height: 40px;
   padding: 4px;
   border-radius: 6px;
   background-color: white;

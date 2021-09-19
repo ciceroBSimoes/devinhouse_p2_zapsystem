@@ -16,7 +16,9 @@ const MessagesTable = ({ messages }) => {
         <tbody>
           {messages.length === 0 && (
             <tr>
-              <td colSpan="4" id="info">Nenhuma Mensagem</td>
+              <td colSpan="4" id="info">
+                Nenhuma Mensagem
+              </td>
             </tr>
           )}
           {messages.map((message) => (
