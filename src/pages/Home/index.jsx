@@ -24,14 +24,15 @@ const Home = ({ triggers, channels }) => {
 
   return (
     <>
-        <div className="header">
-          <h2>Mensagens</h2>
-          <button type="submit" form="filterForm">Pesquisar</button>
-          <Link to="/new_message_form">
-            <button>Nova Mensagem</button>
-          </Link>
-        </div>
-      
+      <div className="header">
+        <h2>Mensagens</h2>
+        <button type="submit" form="filterForm">
+          Pesquisar
+        </button>
+        <Link to="/new_message_form">
+          <button>Nova Mensagem</button>
+        </Link>
+      </div>
 
       <Filter
         triggers={triggers}

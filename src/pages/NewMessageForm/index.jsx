@@ -76,7 +76,7 @@ const NewMessageForm = ({ triggers, channels }) => {
         </div>
 
         <div className="form-field-message">
-          <label htmlFor="inputTimer">Timer(max-96h):</label>
+          <label htmlFor="inputTimer">Timer:</label>
           <input
             type="text"
             name="timer"
